@@ -7,19 +7,52 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Ciao, mi chiamo <code>Mario</code> e verrò a prenderti.
+          Ciao, mi chiamo <code>Mario</code> e sto studiando <code>React</code>.
+          Come mai di disturbi?
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="#"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Mario & React
         </a>
       </header>
     </div>
   );
 }
+function Avatar(props){
+  return (
+    <img className='Avatar'
+      src={props.utente.avatarUrl}
+      alt={props.utente.nome}
+      />
+  );
+}
+function InfoUtente(props){
+  return (
+    <div className='InfoUtente'>
+      <Avatar utente={props.utente} />
+      <div className='InfoUtente-nome'>
+        {props.utente.nome}
+      </div>
+    </div>
+  );
+}
 
+function Commento(props){
+  return (
+    <div className="Commento">
+     <InfoUtente utente={props.autore} />
+      <div className='Commento-test'>
+        {props.testo}
+      </div>
+      <div className='Commento-data'>
+        {/*formatDate(props.data)*/}
+        {props.data}
+      </div>
+    </div>
+  );
+}
 export default App;
